@@ -10,7 +10,7 @@
             if (empty($user_firstname) || empty($user_lastname) || empty($user_email) || empty($user_pwd) || empty($user_alias)) {
                     header("Location: ../signup.php?signup=empty_fields");
                         exit();
-            } else if (!preg_match("/^[a-zA-Z]*$", $user_firstname) || !preg_match("/^[a-zA-Z]*$", $user_lastname) ) {
+            } else if (!preg_match("/^[a-zA-Z]*$/", $user_firstname) || !preg_match("/^[a-zA-Z]*$/", $user_lastname) ) {
                     header("Location: ../signup.php?signup=invalid_entry");
                         exit();
 
@@ -25,7 +25,9 @@
                                 exit();   
                         } else {
                             $hashed_pwd = password_hash($user_pwd, PASSWORD_DEFAULT);
-                            
+                            $register_user = "INSERT INTO users(user_firstname, user_lastname, user_email, user_pwd, user_alias) ";
+                            $register_user .="VALUES('$user_firstname', '$user_lastname', '$user_email', '$hashed_pwd', '$user_alias')";
+                                    
                         }
             }
             
