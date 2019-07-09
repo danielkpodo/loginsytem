@@ -9,6 +9,7 @@
 
             if(empty($user_firstname) || empty($user_lastname) || empty($user_email) || empty($user_pwd) || empty($user_alias)) {
                     header("Location: ../signup.php?signup=empty");
+                        exit();
             }
             
     } else {
