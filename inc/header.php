@@ -22,7 +22,7 @@
                                 if(isset($_SESSION['user_alias'])) {
                                     echo " &nbsp; &nbsp; <span style='color: red;'>You are logged in</span>";
                                 } else {
-                                    echo "You are not loged in";
+                                    echo " <strong>&nbsp; &nbsp; You are not loged in </strong>";
                                 }
                          ?>
                          </a></li>
