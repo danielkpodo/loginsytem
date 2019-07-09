@@ -8,3 +8,4 @@
 + Checking user existence to prevent duplicate registration
 + Redirection of user to _appropriate page_ upon passing all valdation
 + Redirection of user to registration page upon failed validations
++ Allowed login with either email or username
