@@ -28,12 +28,28 @@
                          </a></li>
                  </ul>
                  <div class="nav-login">
-                     <form action="inc/login-process.php" method="post">
-                         <input type="text" name="user_alias" placeholder="username/email">
-                         <input type="password" name="user_pwd" placeholder="password">
-                         <button type="submit" name="submit">Login</button>
-                     </form>
-                     <a href="signup.php">Sign up</a>
+                     <?php
+                            if(isset($_SESSION['user_alias'])) {
+                                echo '
+                                    <form action="./inc/logout.php" method="post">
+                                        <button type="submit" name="submit">Logout</button>
+                                    </form>
+                                ';
+                            } else {
+                                echo '
+                                    <form action="inc/login-process.php" method="post">
+                                        <input type="text" name="user_alias" placeholder="username/email">
+                                        <input type="password" name="user_pwd" placeholder="password">
+                                        <button type="submit" name="submit">Login</button>
+                                    </form>
+                                     <a href="signup.php">Sign up</a>
+                                
+                                ';
+                            }
+
+
+                        ?>
+
                  </div>
 
              </div>
