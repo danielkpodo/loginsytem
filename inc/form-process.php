@@ -23,6 +23,9 @@
                         if (mysqli_num_rows($check_user_result) > 0) {
                               header("Location: ../signup.php?signup=user_taken");
                                 exit();   
+                        } else {
+                            $hashed_pwd = password_hash($user_pwd, PASSWORD_DEFAULT);
+                            
                         }
             }
             
