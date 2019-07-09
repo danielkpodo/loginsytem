@@ -1,8 +1,9 @@
 <?php include_once('./header.php'); ?>
+
 <section class="main-container">
     <div class="main-wrapper">
         <h2>Sign up</h2>
-        <form action="" class="signup-form">
+        <form action="./inc/form-process.php" class="signup-form" method="post">
             <input type="text" name="user_alias" placeholder="username/email">
             <input type="text" name="user_email" placeholder="E-mail address">
             <input type="text" name="user_firstname" placeholder="firstname">
