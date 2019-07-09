@@ -7,9 +7,13 @@
         $user_pwd = mysqli_real_escape_string($conn, $_POST['user_pwd']);
         $user_alias = mysqli_real_escape_string($conn, $_POST['user_alias']);
 
-            if(empty($user_firstname) || empty($user_lastname) || empty($user_email) || empty($user_pwd) || empty($user_alias)) {
+            if (empty($user_firstname) || empty($user_lastname) || empty($user_email) || empty($user_pwd) || empty($user_alias)) {
                     header("Location: ../signup.php?signup=empty");
                         exit();
+            } else if (!preg_match("/^[a-zA-Z]*$", $user_firstname) || !preg_match("/^[a-zA-Z]*$", $user_lastname) ) {
+                    header("Location: ../signup.php?signup=invalid");
+                        exit();
+
             }
             
     } else {
