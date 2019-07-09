@@ -1,5 +1,5 @@
-<?php require_once('./dbconnect.php'); ?>
 <?php
+    require_once('./dbconnect.php');
     if (isset($_POST['submit'])) {
         $user_firstname = mysqli_real_escape_string($conn, $_POST['user_firstname']);
         $user_lastname = mysqli_real_escape_string($conn, $_POST['user_lastname']);
@@ -27,7 +27,10 @@
                             $hashed_pwd = password_hash($user_pwd, PASSWORD_DEFAULT);
                             $register_user = "INSERT INTO users(user_firstname, user_lastname, user_email, user_pwd, user_alias) ";
                             $register_user .="VALUES('$user_firstname', '$user_lastname', '$user_email', '$hashed_pwd', '$user_alias')";
-                                    
+                                    if (mysqli_query($conn, $register_user) === true) {
+                                            header("Location: ../signup.php?signup=registration_successful");
+                                                exit();  
+                                    }
                         }
             }
             
